@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  direction: rtl;
+}
+
+/* Dashboadrd */
+
+.css-dip3t8 {
+  background-color: #4848e5 !important;
+}
+.css-1t8x7v1 > .ps-menu-button:hover {
+  background-color: #1a2e9d !important;
+  color: #ffd700 !important;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  opacity: 1 !important;
+}
+
+/* customInput */
+.cstm-input {
+  margin-top: 1rem;
+  padding-right: 5px;
+  padding-block: 7px;
+  background-color: rgb(222 241 255);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 25%;
+}
+.custom-date {
+  width: 100%;
+  max-width: 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-date:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(40%);
+  cursor: pointer;
+  width: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
