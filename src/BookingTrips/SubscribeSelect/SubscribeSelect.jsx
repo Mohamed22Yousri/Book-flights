@@ -11,7 +11,7 @@ function SubscribeSelect({ register, errors }) {
           {...register("subscribe", {
             required: "من فضلك اختر عدد اشهر الاشتراك",
           })}
-          className="cstm-input"
+          className="cstm-input responsive-input"
         >
           <option value=""> عدد الشهور</option>
           <option value="شهر واحد">شهر واحد </option>

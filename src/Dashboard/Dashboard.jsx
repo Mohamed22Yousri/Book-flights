@@ -6,7 +6,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <>

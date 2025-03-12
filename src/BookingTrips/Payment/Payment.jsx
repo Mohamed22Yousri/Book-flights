@@ -11,7 +11,7 @@ function Payment({ register, errors }) {
           {...register("payment", {
             required: "من فضلك ادخل  طريقه الدفع   ",
           })}
-          className="cstm-input"
+          className="cstm-input responsive-input"
         >
           <option value=""> طريقه الدفع  </option>
           <option value=" كي نت">كي نت </option>

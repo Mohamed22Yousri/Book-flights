@@ -7,7 +7,7 @@ function GenderSelect({ register, errors }) {
         </label>
         <select
           {...register("gender", { required: "من فضلك اختر الجنس" })}
-          className="cstm-input"
+          className="cstm-input responsive-input"
         >
           <option value="">اختر نوع الجنس</option>
           <option value="ذكر">ذكر</option>

@@ -53,6 +53,73 @@ body {
   cursor: pointer;
   width: 20px;
 }
+@media only screen and (max-width: 700px) {
+  .responsive-input {
+    width: 100% !important;
+  }
+}
+
+.responsive-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* يخلي العناصر تنزل تحت بعضها لو المكان ضيق */
+}
+
+.responsive-container label {
+  width: 120px;
+  text-align: right;
+}
+
+.responsive-select,
+.custom-date {
+  flex: 1; /* يخلي الـ input والـ select ياخدوا المساحة المتاحة */
+  min-width: 150px; /* يمنع العناصر من أن تصبح صغيرة جدًا */
+}
+
+/* لما تكون الشاشة صغيرة جدًا (الموبايل) */
+@media (max-width: 600px) {
+  .responsive-container {
+    flex-direction: column; /* يخلي العناصر تتراص تحت بعضها */
+    align-items: flex-start;
+  }
+
+  .responsive-container label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .responsive-input,
+  .custom-date {
+    width: 100%; /* تخلي الحقول تاخد العرض بالكامل */
+  }
+}
+.responsive-table-container {
+  width: 100%;
+  overflow-x: auto; /* يسمح للجدول بالتمرير أفقيًا عند الحاجة */
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* يضمن عدم تصغير الجدول أكثر من اللازم */
+}
+
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+@media (max-width: 600px) {
+  .responsive-table th,
+  .responsive-table td {
+    font-size: 14px; /* تصغير حجم الخط عشان يناسب الشاشات الصغيرة */
+    padding: 6px;
+  }
+}
+
+
 
 
 

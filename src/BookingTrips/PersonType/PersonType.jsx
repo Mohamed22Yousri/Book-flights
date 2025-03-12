@@ -14,7 +14,7 @@ function PersonType({ register, errors }) {
             {...register("typePerson", {
               required: "من فضلك ادخل نوع الشخص   ",
             })}
-            className="cstm-input"
+            className="cstm-input responsive-input"
           >
             <option value=""> نوع الشخص </option>
             <option value=" طالب">طالب </option>

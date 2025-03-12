@@ -54,8 +54,7 @@ function TripListings() {
   };
 
   const handleCloseDelete = () => {
-      setShowDelete(false); // إخفاء التأكيد بدون حذف
-
+    setShowDelete(false); // إخفاء التأكيد بدون حذف
   };
   const handleDeleteConfirm = () => {
     if (deleteTrip) {
@@ -145,10 +144,10 @@ function TripListings() {
       >
         الرحلات
       </h2>
-      <div>
-        <table class="table table-columns">
+      <div className="responsive-table-container">
+        <table class="table table-columns responsive-table">
           <thead>
-            <tr>
+            <tr className="text-center">
               <th scope="col">بدايه خط السير</th>
               <th scope="col">نهايه خط السير</th>
               <th scope="col">العدد</th>
@@ -159,7 +158,7 @@ function TripListings() {
           <tbody>
             {trips.map((trip) => {
               return (
-                <tr>
+                <tr key={trip.id} className="text-center">
                   <th scope="row">{trip?.lineStart}</th>
                   <td>{trip?.endStart}</td>
                   <td>{trip?.number}</td>
@@ -172,7 +171,7 @@ function TripListings() {
                       عرض
                     </button>
                     <button
-                      className="mx-3 btn btn-primary"
+                      className="mx-3 btn btn-primary my-2"
                       onClick={() => handleShowEdit(trip.id)}
                     >
                       تعديل

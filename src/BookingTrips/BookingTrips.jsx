@@ -52,7 +52,7 @@ function BookingTrips() {
               validate: (value) =>
                 value.trim().split(" ").length >= 3 || "يجب إدخال الاسم ثلاثي",
             })}
-            className="cstm-input"
+            className="cstm-input responsive-input"
             placeholder=" ادخل الاسم ..."
             type="text"
           />
@@ -74,7 +74,7 @@ function BookingTrips() {
             {...register("phone", {
               required: "من فضلك ادخل رقم الهاتف ",
             })}
-            className="cstm-input"
+            className="cstm-input responsive-input"
             placeholder="ادخل رقم الهاتف ..."
             type="text"
           />
@@ -96,7 +96,7 @@ function BookingTrips() {
             {...register("email", {
               required: "من فضلك ادخل الايميل  ",
             })}
-            className="cstm-input"
+            className="cstm-input responsive-input"
             placeholder="ادخل الايميل ..."
             type="text"
           />
