@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import deletIcon from "../../assets/delete.png";
-function DeleteConfirm({ showDelete, handleCloseDelete }) {
+function DeleteConfirm({ showDelete, handleDeleteConfirm , handleCloseDelete  }) {
   return (
     <>
       <Modal show={showDelete} onHide={handleCloseDelete}>
@@ -14,7 +14,7 @@ function DeleteConfirm({ showDelete, handleCloseDelete }) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseDelete}>
+          <Button variant="secondary" onClick={handleDeleteConfirm}>
             مسح
           </Button>
         </Modal.Footer>

@@ -54,14 +54,17 @@ function TripListings() {
   };
 
   const handleCloseDelete = () => {
-    if (deleteTrip) {
-      const updatedTrips = trips.filter((trip) => trip.id !== deleteTrip); //  حذف الرحلة بناءً على الـ id
-      setTrips(updatedTrips); //  تحديث حالة الرحلات
-    }
+      setShowDelete(false); // إخفاء التأكيد بدون حذف
 
-    setDeleteTrip(""); //  مسح بيانات الرحلة المختارة
-    setShowDelete(false); // إغلاق المودال
   };
+  const handleDeleteConfirm = () => {
+    if (deleteTrip) {
+      const updatedTrips = trips.filter((trip) => trip.id !== deleteTrip); // حذف الرحلة
+      setTrips(updatedTrips); // تحديث الحالة
+    }
+    setShowDelete(false); // إخفاء المودال بعد الحذف
+  };
+
   // تخزين الـ id فقط
   const handleShowDelete = (id) => {
     setDeleteTrip(id);
@@ -192,6 +195,7 @@ function TripListings() {
 
       {/* حذف رحله */}
       <DeleteConfirm
+        handleDeleteConfirm={handleDeleteConfirm}
         handleCloseDelete={handleCloseDelete}
         showDelete={showDelete}
       />
