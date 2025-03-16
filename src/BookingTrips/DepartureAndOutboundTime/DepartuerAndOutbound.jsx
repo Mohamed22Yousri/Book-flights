@@ -25,7 +25,9 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
       </div>
 
       {/* الذهاب والعودة جنب بعض */}
-      {(selectedTrip === "ذهاب وعودة" || selectedTrip === "ذهاب" || selectedTrip === "عودة") && (
+      {(selectedTrip === "ذهاب وعودة" ||
+        selectedTrip === "ذهاب" ||
+        selectedTrip === "عودة") && (
         <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
           {/* الذهاب */}
           {(selectedTrip === "ذهاب وعودة" || selectedTrip === "ذهاب") && (
@@ -41,17 +43,29 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
                 <option value="جمعيه حولي">جمعيه حولي</option>
               </select>
               {errors.from && (
-                <span className="text-danger px-2 mt-1">{errors.from.message}</span>
+                <span className="text-danger px-2 mt-1">
+                  {errors.from.message}
+                </span>
               )}
 
-              <label style={{ textAlign: "right", marginTop: "0.5rem" }}>موعد الذهاب:</label>
+              <label
+                style={{
+                  textAlign: "right",
+                  marginTop: "0.5rem",
+                  marginBottom: "10px",
+                }}
+              >
+                موعد الذهاب:
+              </label>
               <input
                 {...register("going", { required: "من فضلك ادخل موعد الذهاب" })}
                 className="custom-date"
                 type="date"
               />
               {errors.going && (
-                <span className="text-danger px-2 mt-1">{errors.going.message}</span>
+                <span className="text-danger px-2 mt-1">
+                  {errors.going.message}
+                </span>
               )}
             </div>
           )}
@@ -71,10 +85,20 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
                 <option value="مجمع كيبكو">مجمع كيبكو</option>
               </select>
               {errors.to && (
-                <span className="text-danger px-2 mt-1">{errors.to.message}</span>
+                <span className="text-danger px-2 mt-1">
+                  {errors.to.message}
+                </span>
               )}
 
-              <label style={{ textAlign: "right", marginTop: "0.5rem" }}>موعد المغادرة:</label>
+              <label
+                style={{
+                  textAlign: "right",
+                  marginTop: "0.5rem",
+                  marginBottom: "10px",
+                }}
+              >
+                موعد المغادرة:
+              </label>
               <input
                 {...register("departure", {
                   required: "من فضلك ادخل موعد المغادرة",
@@ -83,7 +107,9 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
                 type="date"
               />
               {errors.departure && (
-                <span className="text-danger px-2 mt-1">{errors.departure.message}</span>
+                <span className="text-danger px-2 mt-1">
+                  {errors.departure.message}
+                </span>
               )}
             </div>
           )}
