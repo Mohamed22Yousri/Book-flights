@@ -59,12 +59,24 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
               </label>
               <input
                 {...register("going", { required: "من فضلك ادخل موعد الذهاب" })}
-                className="custom-date"
-                type="datetime-local"
+                className="custom-date my-2"
+                type="date"
               />
               {errors.going && (
                 <span className="text-danger px-2 mt-1">
                   {errors.going.message}
+                </span>
+              )}
+              <input
+                {...register("timeGoing", {
+                  required: "من فضلك ادخل وقت الذهاب",
+                })}
+                className="custom-date"
+                type="time"
+              />
+              {errors.timeGoing && (
+                <span className="text-danger px-2 mt-1">
+                  {errors.timeGoing.message}
                 </span>
               )}
             </div>
@@ -101,14 +113,26 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
               </label>
               <input
                 {...register("departure", {
-                  required: "من فضلك ادخل موعد المغادرة",
+                  required: "من فضلك ادخل موعد الذهاب",
                 })}
-                className="custom-date"
-                type="datetime-local"
+                className="custom-date my-2"
+                type="date"
               />
               {errors.departure && (
                 <span className="text-danger px-2 mt-1">
                   {errors.departure.message}
+                </span>
+              )}
+              <input
+                {...register("departureTime", {
+                  required: "من فضلك ادخل وقت المغادرة",
+                })}
+                className="custom-date"
+                type="time"
+              />
+              {errors.departureTime && (
+                <span className="text-danger px-2 mt-1">
+                  {errors.departureTime.message}
                 </span>
               )}
             </div>
