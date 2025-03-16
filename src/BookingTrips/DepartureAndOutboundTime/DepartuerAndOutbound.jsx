@@ -3,93 +3,89 @@ import React from "react";
 function DepartuerAndOutbound({ register, errors, selectedTrip }) {
   return (
     <>
+      {/* اختيار الرحلة */}
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <label style={{ width: "120px", textAlign: "right" }} className="mt-2">
-          اختار الرحله:
+          اختار الرحلة:
         </label>
-        <select
-          {...register("trip", { required: "من فضلك اختر نوع الرحلة" })}
-          className="cstm-input responsive-input"
-        >
-          <option value="">اختار نوع الرحلة</option>
-          <option value="ذهاب وعودة">ذهاب وعودة</option>
-          <option value="ذهاب">ذهاب</option>
-          <option value="عودة">عودة</option>
-        </select>
-        {errors.trip && (
-          <span className="text-danger">{errors.trip.message}</span>
-        )}
-      </div>
-
-      {/* تحديد نقطة المغادرة إذا كان الاختيار ذهاب أو ذهاب وعودة */}
-      {(selectedTrip === "ذهاب وعودة" || selectedTrip === "ذهاب") && (
-        <div
-          className="responsive-container"
-          style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-        >
-          <label
-            style={{ width: "120px", textAlign: "right", marginTop: "20px" }}
-          >
-            الذهاب من:
-          </label>
+        <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
           <select
-            {...register("from", { required: "من فضلك اختر الجمعيه " })}
-            className="cstm-input responsive-input mt-0"
+            {...register("trip", { required: "من فضلك اختر نوع الرحلة" })}
+            className="cstm-input responsive-input"
           >
-            <option value="">اختر الجمعيه </option>
-            <option value="جمعيه السالميه">جمعيه السالميه</option>
-            <option value="جمعيه الفروانيه">جمعيه الفروانيه</option>
-            <option value="جمعيه حولي">جمعيه حولي</option>
+            <option value="">اختار نوع الرحلة</option>
+            <option value="ذهاب وعودة">ذهاب وعودة</option>
+            <option value="ذهاب">ذهاب</option>
+            <option value="عودة">عودة</option>
           </select>
-          {errors.from && (
-            <span className="text-danger">{errors.from.message}</span>
-          )}
-          <input
-            {...register("going", {
-              required: "من فضلك ادخل موعد الذهاب",
-            })}
-            className="custom-date"
-            type="date"
-          />
-          {errors.going && (
-            <span className="text-danger">{errors.going.message}</span>
+          {errors.trip && (
+            <span className="text-danger px-2 mt-1">{errors.trip.message}</span>
           )}
         </div>
-      )}
+      </div>
 
-      {/* تحديد نقطة الوصول إذا كان الاختيار عودة أو ذهاب وعودة */}
-      {(selectedTrip === "ذهاب وعودة" || selectedTrip === "عودة") && (
-        <div
-          className="responsive-container"
-          style={{ display: "flex", alignItems: "center", gap: "1rem" }}
-        >
-          <label
-            style={{ width: "120px", textAlign: "right", marginTop: "20px" }}
-          >
-            العوده من:
-          </label>
-          <select
-            {...register("to", { required: "من فضلك اختر  منطقه العوده" })}
-            className="cstm-input responsive-input mt-0"
-          >
-            <option value="">اختر منطقه العوده </option>
-            <option value="مجمع مزايا">مجمع مزايا</option>
-            <option value="مجمع العاصمه">مجمع العاصمه</option>
-            <option value="مجمع الحمرا">مجمع الحمرا</option>
-            <option value="مجمع كيبكو">مجمع كيبكو</option>
-          </select>
-          {errors.to && (
-            <span className="text-danger">{errors.to.message}</span>
+      {/* الذهاب والعودة جنب بعض */}
+      {(selectedTrip === "ذهاب وعودة" || selectedTrip === "ذهاب" || selectedTrip === "عودة") && (
+        <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          {/* الذهاب */}
+          {(selectedTrip === "ذهاب وعودة" || selectedTrip === "ذهاب") && (
+            <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+              <label style={{ textAlign: "right" }}>الذهاب من:</label>
+              <select
+                {...register("from", { required: "من فضلك اختر الجمعية" })}
+                className="cstm-input responsive-input"
+              >
+                <option value="">اختر الجمعية</option>
+                <option value="جمعيه السالميه">جمعيه السالميه</option>
+                <option value="جمعيه الفروانيه">جمعيه الفروانيه</option>
+                <option value="جمعيه حولي">جمعيه حولي</option>
+              </select>
+              {errors.from && (
+                <span className="text-danger px-2 mt-1">{errors.from.message}</span>
+              )}
+
+              <label style={{ textAlign: "right", marginTop: "0.5rem" }}>موعد الذهاب:</label>
+              <input
+                {...register("going", { required: "من فضلك ادخل موعد الذهاب" })}
+                className="custom-date"
+                type="date"
+              />
+              {errors.going && (
+                <span className="text-danger px-2 mt-1">{errors.going.message}</span>
+              )}
+            </div>
           )}
-          <input
-            {...register("departure", {
-              required: "من فضلك ادخل موعد المغادره",
-            })}
-            className="custom-date"
-            type="date"
-          />
-          {errors.departure && (
-            <span className="text-danger">{errors.departure.message}</span>
+
+          {/* العودة */}
+          {(selectedTrip === "ذهاب وعودة" || selectedTrip === "عودة") && (
+            <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+              <label style={{ textAlign: "right" }}>العودة من:</label>
+              <select
+                {...register("to", { required: "من فضلك اختر منطقة العودة" })}
+                className="cstm-input responsive-input"
+              >
+                <option value="">اختر منطقة العودة</option>
+                <option value="مجمع مزايا">مجمع مزايا</option>
+                <option value="مجمع العاصمه">مجمع العاصمه</option>
+                <option value="مجمع الحمرا">مجمع الحمرا</option>
+                <option value="مجمع كيبكو">مجمع كيبكو</option>
+              </select>
+              {errors.to && (
+                <span className="text-danger px-2 mt-1">{errors.to.message}</span>
+              )}
+
+              <label style={{ textAlign: "right", marginTop: "0.5rem" }}>موعد المغادرة:</label>
+              <input
+                {...register("departure", {
+                  required: "من فضلك ادخل موعد المغادرة",
+                })}
+                className="custom-date"
+                type="date"
+              />
+              {errors.departure && (
+                <span className="text-danger px-2 mt-1">{errors.departure.message}</span>
+              )}
+            </div>
           )}
         </div>
       )}
