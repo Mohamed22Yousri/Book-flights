@@ -28,7 +28,8 @@ function BookingTable({ formData, handleDelete }) {
                   <td>{data?.email}</td>
                   <td>{data?.gender}</td>
                   <td>
-                    {data?.trip} {data?.from} {data?.going} {data?.to}
+                    {data?.trip} {data?.from} <br /> {data?.going} <br />{" "}
+                    {data?.to} <br />
                     {data?.departure}
                   </td>
                   <td>{data?.subscribe}</td>
