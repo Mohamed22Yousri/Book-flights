@@ -60,7 +60,7 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
               <input
                 {...register("going", { required: "من فضلك ادخل موعد الذهاب" })}
                 className="custom-date"
-                type="date"
+                type="datetime-local"
               />
               {errors.going && (
                 <span className="text-danger px-2 mt-1">
@@ -104,7 +104,7 @@ function DepartuerAndOutbound({ register, errors, selectedTrip }) {
                   required: "من فضلك ادخل موعد المغادرة",
                 })}
                 className="custom-date"
-                type="date"
+                type="datetime-local"
               />
               {errors.departure && (
                 <span className="text-danger px-2 mt-1">
